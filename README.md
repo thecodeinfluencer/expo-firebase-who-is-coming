@@ -39,11 +39,12 @@ Whos has the following four actors
 - Edits and deletes house units
 - Edits and deletes types of services
 
-## setup
+## prerequisites
 
 for the project to work correctly, make sure you do the following:
 
-- Create a file in `config` folder called `firebase.js` with the following contents:
+- Create a root folder `config` and add a file called `firebase.js`.
+- The following are the contents of `config/firebase.js`:
 
 ```
 import { initializeApp } from 'firebase/app';
@@ -105,6 +106,12 @@ You can get the details in the `firebaseConfig` variable by doing the following:
 - For an admin account, register as a resident then in the realtime database, manually change `role` from **resident** to **admin**
 
 You can reach out in caseof any problems
+
+## setup
+
+- After you clone the repo, run `npm install` or `yarn install` depending on your package manager
+- Run `yarn start` or `npm start` depending on your package manager or if you have expo-cli `expo start`
+- Follow the instructions on the terminal to open your project in either **Android**
 
 ## technologies
 
