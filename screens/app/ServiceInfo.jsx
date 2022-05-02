@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import { List } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import ListCard from '../../fragments/ListCard';
