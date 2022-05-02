@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { List } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import ListCard from '../../fragments/ListCard';
@@ -9,8 +9,8 @@ import { actionLoadList } from '../../redux/actions/dataActions';
 export default function ServiceInfo({ navigation, route }) {
   const dispatch = useDispatch();
   const state = useSelector(st => st);
-  const guests = state.data?.list?.guests?.filter(
-    ({ service }) => service == route.params.value
+  const providers = state.data?.list?.users?.filter(
+    ({ service }) => service?.toLowerCase() == route.params.value?.toLowerCase()
   );
 
   navigation.setOptions({
@@ -18,21 +18,21 @@ export default function ServiceInfo({ navigation, route }) {
   });
 
   useEffect(() => {
-    dispatch(actionLoadList('guests'));
+    dispatch(actionLoadList('users'));
   }, [dispatch]);
 
   return (
     <ScrollView>
-      {guests?.map(guest => (
+      {providers?.map(provider => (
         <ListCard
-          key={guest.id}
-          title={guest.names + ' . ' + guest?.service}
-          description={`${guest.phone}`}
+          key={provider.id}
+          title={provider.names + ' . ' + provider?.service}
+          description={`${provider.phone}`}
           left={props => <List.Icon {...props} icon='phone' color='#fff' />}
         />
       ))}
-      {!guests ||
-        (guests?.length < 1 && (
+      {!providers ||
+        (providers?.length < 1 && (
           <ListEmptyCard label={`No ${route?.params?.value} yet`} />
         ))}
     </ScrollView>
