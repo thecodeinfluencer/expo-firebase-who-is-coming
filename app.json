@@ -24,7 +24,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "code.influence.whos",
-      "permissions": ["INTERNET", "NETWORK"]
+      "permissions": ["INTERNET", "NETWORK"],
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
