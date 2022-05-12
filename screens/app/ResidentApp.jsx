@@ -1,13 +1,9 @@
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import React, { useEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import {
-  Card,
-  DefaultTheme,
-  IconButton,
-  TouchableRipple,
-} from 'react-native-paper';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Card, Colors, IconButton, TouchableRipple } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
-import { actionLoadList, actionSetList } from '../../redux/actions/dataActions';
+import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function ResidentApp({ navigation }) {
   const dispatch = useDispatch();
@@ -27,107 +23,68 @@ export default function ResidentApp({ navigation }) {
 
   return (
     <ScrollView>
-      <View style={styles.buttons}>
-        <TouchableRipple
-          style={styles.button1}
-          onPress={() => {
-            // const value = 'unt36';
-
-            // dispatch(
-            //   actionSetList('units', {
-            //     id: Date.now(),
-            //     label: value.toUpperCase(),
-            //     description: `Unit ${value}`,
-            //   })
-            // );
-
-            navigation.navigate('ReportSuspicion');
-          }}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}>Report Suspicious Activity</Text>
-          </Card>
-        </TouchableRipple>
-        <TouchableRipple
-          style={styles.button2}
-          onPress={() => navigation.navigate('Suspicions')}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}> View Suspicious activities</Text>
-          </Card>
-        </TouchableRipple>
+      <View style={styles.actionsContainer}>
+        {actions.map(({ name, text, bg, icon }) => (
+          <TouchableRipple
+            style={styles.action}
+            key={name}
+            onPress={() => navigation.navigate(name)}
+          >
+            <Card style={[styles.actionCard, { backgroundColor: bg }]}>
+              <Card.Title
+                title={text}
+                titleStyle={styles.actionText}
+                left={() => <Icon color={Colors.white} size={30} name={icon} />}
+                right={() => (
+                  <Icon color={Colors.white} size={30} name='chevron-right' />
+                )}
+              />
+            </Card>
+          </TouchableRipple>
+        ))}
       </View>
-      <View style={styles.buttons}>
-        <TouchableRipple
-          style={styles.button1}
-          onPress={() => navigation.navigate('Services')}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}>Request Service</Text>
-          </Card>
-        </TouchableRipple>
-        <TouchableRipple
-          style={styles.button2}
-          onPress={() => navigation.navigate('ViewResidents')}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}>View Neighbors</Text>
-          </Card>
-        </TouchableRipple>
-      </View>
-      <View style={styles.buttons}>
-        <TouchableRipple
-          style={styles.button1}
-          onPress={() => navigation.navigate('ManageGuests')}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}>Manage Guests</Text>
-          </Card>
-        </TouchableRipple>
-        <View style={styles.button3} />
-      </View>
-      {/* <Text style={styles.text}>Coming to neighbourhood</Text>
-      {(!activities || activities?.length < 1) && <ListEmptyCard />}
-      {activities?.map(activity => (
-        <ResidentCard key={activity.id} activity={activity} />
-      ))} */}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  buttons: {
-    flexDirection: 'row',
-    marginHorizontal: 8,
-    marginTop: 16,
+  actionsContainer: {
+    padding: 8,
   },
-  card: {
-    padding: 14,
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: DefaultTheme.colors.primary,
-  },
-  button1: {
-    flex: 1,
-    marginRight: 8,
-  },
-  button2: {
-    flex: 1,
-    marginLeft: 8,
-  },
-  button3: {
-    flex: 1,
-    marginLeft: 8,
-  },
-  // text: {
-  //   fontSize: 24,
-  //   marginVertical: 12,
-  //   marginHorizontal: 16,
-  //   color: '#999',
-  // },
-  cardText: {
-    fontSize: 16,
-    color: DefaultTheme.colors.primary,
-    fontWeight: '400',
-  },
+  action: { marginBottom: 8 },
+  actionCard: { backgroundColor: '#009688', fontFamily: 'Nunito' },
+  actionText: { color: '#fff', fontFamily: 'Nunito' },
 });
+
+const actions = [
+  {
+    name: 'ReportSuspicion',
+    text: 'Report Suspicious Activity',
+    bg: '#ef5dab',
+    icon: 'alert-plus-outline',
+  },
+  {
+    name: 'Suspicions',
+    text: 'View Suspicious activities',
+    bg: '#aeaff7',
+    icon: 'alert-rhombus-outline',
+  },
+  {
+    name: 'Services',
+    text: 'Request Service',
+    bg: '#a0e3e2',
+    icon: 'account-cash-outline',
+  },
+  {
+    name: 'ViewResidents',
+    text: 'View Neighbors',
+    bg: '#c3f2a6',
+    icon: 'account-group',
+  },
+  {
+    name: 'ManageGuests',
+    text: 'Manage Guests',
+    bg: '#008b8b',
+    icon: 'badge-account-outline',
+  },
+];

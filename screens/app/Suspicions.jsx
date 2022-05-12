@@ -1,8 +1,10 @@
+import moment from 'moment';
 import React, { useEffect } from 'react';
 import { View } from 'react-native';
+import { List } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import ListEmptyCard from '../../fragments/ListEmptyCard';
-import SuspicionCard from '../../fragments/SuspicionCard';
+import ListCard from '../../paper/ListCard';
+import ListEmpty from '../../paper/ListEmpty';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function Suspicions() {
@@ -16,9 +18,14 @@ export default function Suspicions() {
 
   return (
     <View>
-      {(!suspicions || suspicions?.length < 1) && <ListEmptyCard />}
-      {suspicions?.map(suspicion => (
-        <SuspicionCard key={suspicion?.id} suspicion={suspicion} />
+      {(!suspicions || suspicions?.length < 1) && <ListEmpty />}
+      {suspicions?.map(({ id, title, user, description }) => (
+        <ListCard
+          key={id}
+          title={title + ' . ' + user?.names}
+          description={description + ' . ' + moment(id).fromNow()}
+          left={props => <List.Icon color='#fff' {...props} icon='alert' />}
+        />
       ))}
     </View>
   );

@@ -1,12 +1,15 @@
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import React, { useEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import {
+  Banner,
   Card,
-  DefaultTheme,
+  Colors,
   IconButton,
   TouchableRipple,
 } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
+import AppText from '../../package/AppText';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function AdminApp({ navigation }) {
@@ -28,69 +31,69 @@ export default function AdminApp({ navigation }) {
 
   return (
     <ScrollView>
-      <View style={styles.buttons}>
-        <TouchableRipple
-          style={styles.button1}
-          onPress={() => navigation.navigate('ManageResidents')}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}>Manage Residents</Text>
-          </Card>
-        </TouchableRipple>
-        <TouchableRipple
-          style={styles.button2}
-          onPress={() => navigation.navigate('ManageVendors')}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}>Service Vendors</Text>
-          </Card>
-        </TouchableRipple>
-      </View>
-      <View style={styles.buttons}>
-        <TouchableRipple
-          style={styles.button1}
-          onPress={() => navigation.navigate('ManageUnits')}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}>House Units</Text>
-          </Card>
-        </TouchableRipple>
-        <TouchableRipple
-          style={styles.button2}
-          onPress={() => navigation.navigate('ManageServices')}
-        >
-          <Card style={styles.card} mode='outlined'>
-            <Text style={styles.cardText}>Service Categories</Text>
-          </Card>
-        </TouchableRipple>
+      <Banner visible actions={[]}>
+        <AppText>
+          You have priviledges to manage residents, service vendors, house units
+          and service categories
+        </AppText>
+      </Banner>
+
+      <View style={styles.actionsContainer}>
+        {actions.map(({ name, text, bg, icon }) => (
+          <TouchableRipple
+            style={styles.action}
+            key={name}
+            onPress={() => navigation.navigate(name)}
+          >
+            <Card style={[styles.actionCard, { backgroundColor: bg }]}>
+              <Card.Title
+                title={text}
+                titleStyle={styles.actionText}
+                left={() => <Icon color={Colors.white} size={30} name={icon} />}
+                right={() => (
+                  <Icon color={Colors.white} size={30} name='chevron-right' />
+                )}
+              />
+            </Card>
+          </TouchableRipple>
+        ))}
       </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  buttons: {
-    flexDirection: 'row',
-    marginHorizontal: 8,
-    marginTop: 16,
+  actionsContainer: {
+    padding: 8,
   },
-  card: {
-    padding: 14,
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: DefaultTheme.colors.primary,
-  },
-  button1: {
-    flex: 1,
-    marginRight: 8,
-  },
-  button2: {
-    flex: 1,
-    marginLeft: 8,
-  },
-  cardText: {
-    fontSize: 16,
-    color: DefaultTheme.colors.primary,
-    fontWeight: '400',
-  },
+  action: { marginBottom: 8 },
+  actionCard: { backgroundColor: '#009688' },
+  actionText: { color: '#fff', fontFamily: 'Nunito' },
 });
+
+const actions = [
+  {
+    name: 'ManageResidents',
+    text: 'Manage Residents',
+    bg: '#ef5dab',
+    icon: 'account-group',
+  },
+  {
+    name: 'ManageVendors',
+    text: 'Service Vendors',
+    bg: '#aeaff7',
+    icon: 'account-cash',
+  },
+  {
+    name: 'ManageUnits',
+    text: 'House Units',
+    bg: '#a0e3e2',
+    icon: 'warehouse',
+  },
+  {
+    name: 'ManageServices',
+    text: 'Service Categories',
+    bg: '#c3f2a6',
+    icon: 'apps-box',
+  },
+];

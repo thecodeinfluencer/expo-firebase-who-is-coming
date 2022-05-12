@@ -8,6 +8,7 @@ import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import FormikSelect from '../../formik/FormikSelect';
 import Alert from '../../fragments/Alert';
+import AppText from '../../package/AppText';
 import { actionLoadList, actionSetList } from '../../redux/actions/dataActions';
 
 const validation = Yup.object().shape({
@@ -32,7 +33,7 @@ export default function RegisterGuest({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.text}>Register a Visit</Text>
+      <AppText style={styles.text}>Register a Visit</AppText>
       <FormikForm
         validationSchema={validation}
         initialValues={{
@@ -97,13 +98,13 @@ export default function RegisterGuest({ navigation }) {
         </FormikButton>
       </FormikForm>
       <View style={styles.action}>
-        <Text>Need to login?</Text>
-        <Text
+        <AppText>Need to login?</AppText>
+        <AppText
           onPress={() => navigation.navigate('Login')}
           style={styles.actionText}
         >
           Login.
-        </Text>
+        </AppText>
       </View>
     </ScrollView>
   );

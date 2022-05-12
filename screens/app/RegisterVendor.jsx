@@ -8,6 +8,7 @@ import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import FormikSelect from '../../formik/FormikSelect';
 import Alert from '../../fragments/Alert';
+import AppText from '../../package/AppText';
 import { actionRegister } from '../../redux/actions/authActions';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
@@ -36,7 +37,7 @@ export default function RegisterVendor({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.text}>Register as Vendor</Text>
+      <AppText style={styles.text}>Register as Vendor</AppText>
       <FormikForm
         validationSchema={validation}
         initialValues={{
@@ -139,13 +140,13 @@ export default function RegisterVendor({ navigation }) {
         </FormikButton>
       </FormikForm>
       <View style={styles.action}>
-        <Text>Need to login?</Text>
-        <Text
+        <AppText>Need to login?</AppText>
+        <AppText
           onPress={() => navigation.navigate('Login')}
           style={styles.actionText}
         >
           Login.
-        </Text>
+        </AppText>
       </View>
     </ScrollView>
   );

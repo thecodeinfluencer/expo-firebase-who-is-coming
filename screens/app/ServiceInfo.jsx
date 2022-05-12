@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { ScrollView } from 'react-native';
 import { List } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import ListCard from '../../fragments/ListCard';
-import ListEmptyCard from '../../fragments/ListEmptyCard';
+import ListCard from '../../paper/ListCard';
+import ListEmpty from '../../paper/ListEmpty';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function ServiceInfo({ navigation, route }) {
@@ -33,7 +33,7 @@ export default function ServiceInfo({ navigation, route }) {
       ))}
       {!providers ||
         (providers?.length < 1 && (
-          <ListEmptyCard label={`No ${route?.params?.value} yet`} />
+          <ListEmpty label={`No ${route?.params?.value} yet`} />
         ))}
     </ScrollView>
   );

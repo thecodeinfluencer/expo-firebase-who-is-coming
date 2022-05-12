@@ -1,12 +1,13 @@
 import { DefaultTheme } from '@react-navigation/native';
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View, StatusBar } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import Alert from '../../fragments/Alert';
+import AppText from '../../package/AppText';
 import { actionLogin } from '../../redux/actions/authActions';
 
 const validation = Yup.object().shape({
@@ -22,9 +23,10 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle='dark-content' />
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={require('../../assets/icon.png')} />
-        <Text style={styles.text}>Login</Text>
+        <AppText style={styles.text}>Login</AppText>
       </View>
       <FormikForm
         validationSchema={validation}
@@ -56,20 +58,20 @@ export default function Login({ navigation }) {
         </FormikButton>
       </FormikForm>
       <View style={styles.action}>
-        <Text>Dont have an account yet?</Text>
-        <Text
+        <AppText>Dont have an account yet?</AppText>
+        <AppText
           onPress={() => navigation.navigate('RegisterSwitch')}
           style={styles.actionText}
         >
           Register.
-        </Text>
+        </AppText>
       </View>
-      <Text
+      <AppText
         onPress={() => navigation.navigate('ForgotPassword')}
         style={styles.actionText}
       >
         Forgot password?
-      </Text>
+      </AppText>
     </View>
   );
 }

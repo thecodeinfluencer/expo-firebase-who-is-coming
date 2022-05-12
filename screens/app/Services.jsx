@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { IconButton, TouchableRipple } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import ListCard from '../../fragments/ListCard';
+import ListCard from '../../paper/ListCard';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function Services({ navigation }) {

@@ -1,12 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { IconButton } from 'react-native-paper';
+import AppText from '../package/AppText';
 
-export default function ListEmptyCard({ label }) {
+export default function ListEmpty({ label }) {
   return (
     <View style={styles.root}>
       <IconButton color='#999' size={36} icon='file' />
-      <Text style={styles.text}>{label || 'Nothing Here Yet'}</Text>
+      <AppText style={styles.text}>{label || 'Nothing Here Yet'}</AppText>
     </View>
   );
 }

@@ -8,6 +8,7 @@ import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import FormikSelect from '../../formik/FormikSelect';
 import Alert from '../../fragments/Alert';
+import AppText from '../../package/AppText';
 import { actionRegister } from '../../redux/actions/authActions';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
@@ -37,7 +38,7 @@ export default function RegisterResident({ navigation }) {
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={require('../../assets/icon.png')} />
-        <Text style={styles.text}>Register as Resident</Text>
+        <AppText style={styles.text}>Register as Resident</AppText>
       </View>
       <FormikForm
         validationSchema={validation}
@@ -101,13 +102,13 @@ export default function RegisterResident({ navigation }) {
         </FormikButton>
       </FormikForm>
       <View style={styles.action}>
-        <Text>Already have an account?</Text>
-        <Text
+        <AppText>Already have an account?</AppText>
+        <AppText
           onPress={() => navigation.navigate('Login')}
           style={styles.actionText}
         >
           Login.
-        </Text>
+        </AppText>
       </View>
     </ScrollView>
   );

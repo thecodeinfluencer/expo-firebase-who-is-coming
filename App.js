@@ -1,5 +1,7 @@
+import { useFonts } from '@expo-google-fonts/inter';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
+import { ActivityIndicator } from 'react-native';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -44,6 +46,16 @@ export default function App() {
   );
 
   store.subscribe(() => saveToAsyncStorage(store.getState()));
+
+  // Fonts
+
+  let [fontsLoaded] = useFonts({
+    Nunito: require('./assets/fonts/Nunito.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <Provider store={store}>

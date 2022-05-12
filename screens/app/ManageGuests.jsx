@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import ListCard from '../../fragments/ListCard';
-import ListEmptyCard from '../../fragments/ListEmptyCard';
+import ListCard from '../../paper/ListCard';
+import ListEmpty from '../../paper/ListEmpty';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function ManageGuests({ navigation }) {
@@ -47,7 +47,7 @@ export default function ManageGuests({ navigation }) {
           )}
         />
       ))}
-      {!myGuests || (myGuests?.length < 1 && <ListEmptyCard />)}
+      {!myGuests || (myGuests?.length < 1 && <ListEmpty />)}
     </ScrollView>
   );
 }

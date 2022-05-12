@@ -7,6 +7,7 @@ import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import Alert from '../../fragments/Alert';
+import AppText from '../../package/AppText';
 
 const validation = Yup.object().shape({
   email: Yup.string().email().required().label('Email'),
@@ -18,7 +19,7 @@ export default function ForgotPassword({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Password Reset</Text>
+      <AppText style={styles.text}>Password Reset</AppText>
       <FormikForm
         validationSchema={validation}
         initialValues={{
@@ -49,13 +50,13 @@ export default function ForgotPassword({ navigation }) {
         </FormikButton>
       </FormikForm>
       <View style={styles.action}>
-        <Text>Dont need to reset password??</Text>
-        <Text
+        <AppText>Dont need to reset password??</AppText>
+        <AppText
           onPress={() => navigation.navigate('Login')}
           style={styles.actionText}
         >
           Login.
-        </Text>
+        </AppText>
       </View>
     </View>
   );

@@ -31,5 +31,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
+    fontFamily: 'Nunito',
   },
 });

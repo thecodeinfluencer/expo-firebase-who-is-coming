@@ -7,7 +7,7 @@ import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import Alert from '../../fragments/Alert';
-import ListCard from '../../fragments/ListCard';
+import ListCard from '../../paper/ListCard';
 import {
   actionLoadList,
   actionSetList,
