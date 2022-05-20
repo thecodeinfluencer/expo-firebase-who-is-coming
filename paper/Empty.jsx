@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { IconButton } from 'react-native-paper';
-import AppText from '../package/AppText';
+import AppText from '../fragments/AppText';
 
 export default function Empty({ label }) {
   return (

@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
-import Alert from '../../fragments/Alert';
+import AppAlert from '../../fragments/AppAlert';
 import AppButton from '../../paper/AppButton';
 import { actionUpdateListItem } from '../../redux/actions/dataActions';
 
@@ -86,7 +86,7 @@ export default function EditVendor({ navigation, route }) {
           mode='outlined'
           keyboardType='numeric'
         />
-        {error && <Alert label={error} />}
+        {error && <AppAlert label={error} />}
         <FormikButton disabled={busy} mode='contained'>
           Update Vendor
         </FormikButton>

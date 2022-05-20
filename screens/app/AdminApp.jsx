@@ -9,7 +9,7 @@ import {
   TouchableRipple,
 } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
-import AppText from '../../package/AppText';
+import AppText from '../../fragments/AppText';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function AdminApp({ navigation }) {

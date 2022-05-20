@@ -8,9 +8,9 @@ import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import FormikSelect from '../../formik/FormikSelect';
-import Alert from '../../fragments/Alert';
-import AppText from '../../package/AppText';
-import CircleGraphic from '../../package/CircleGraphic';
+import AppAlert from '../../fragments/AppAlert';
+import AppText from '../../fragments/AppText';
+import CircleGraphic from '../../fragments/CircleGraphic';
 import { actionRegister } from '../../redux/actions/authActions';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
@@ -140,7 +140,7 @@ export default function RegisterVendor({ navigation }) {
           name='plate'
           mode='outlined'
         /> */}
-            {error && <Alert label={error} />}
+            {error && <AppAlert label={error} />}
             <FormikButton disabled={busy} mode='contained'>
               Register
             </FormikButton>

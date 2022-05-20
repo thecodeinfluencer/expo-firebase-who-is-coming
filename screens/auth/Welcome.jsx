@@ -6,7 +6,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import AppText from '../../package/AppText';
+import AppText from '../../fragments/AppText';
 import AppButton from '../../paper/AppButton';
 
 const SCREEN_WIDTH = Dimensions.get('screen').width;

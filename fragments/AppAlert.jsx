@@ -2,7 +2,7 @@ import React from 'react';
 import { Drawer } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 
-export default function Alert({ label }) {
+export default function AppAlert({ label }) {
   return <Drawer.Item style={styles.root} icon='alert' label={label} />;
 }
 

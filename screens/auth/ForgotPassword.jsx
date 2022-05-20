@@ -6,8 +6,8 @@ import { auth, sendPasswordResetEmail } from '../../config/firebase';
 import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
-import Alert from '../../fragments/Alert';
-import AppText from '../../package/AppText';
+import AppAlert from '../../fragments/AppAlert';
+import AppText from '../../fragments/AppText';
 
 const validation = Yup.object().shape({
   email: Yup.string().email().required().label('Email'),
@@ -44,7 +44,7 @@ export default function ForgotPassword({ navigation }) {
           keyboardType='email-address'
           textContentType='emailAddress'
         />
-        {error.length > 0 && <Alert label={error} />}
+        {error.length > 0 && <AppAlert label={error} />}
         <FormikButton disabled={busy} mode='contained'>
           Send
         </FormikButton>

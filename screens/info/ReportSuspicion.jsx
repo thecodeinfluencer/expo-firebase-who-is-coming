@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
-import Alert from '../../fragments/Alert';
+import AppAlert from '../../fragments/AppAlert';
 import { actionSetList } from '../../redux/actions/dataActions';
 
 const validation = Yup.object().shape({
@@ -62,7 +62,7 @@ export default function ReportSuspicion({ navigation }) {
           multiline
           numberOfLines={4}
         />
-        {error && <Alert label={error} />}
+        {error && <AppAlert label={error} />}
         <FormikButton disabled={busy} mode='contained'>
           Report
         </FormikButton>

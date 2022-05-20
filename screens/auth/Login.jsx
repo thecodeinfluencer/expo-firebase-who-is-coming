@@ -6,8 +6,8 @@ import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
-import Alert from '../../fragments/Alert';
-import AppText from '../../package/AppText';
+import AppAlert from '../../fragments/AppAlert';
+import AppText from '../../fragments/AppText';
 import { actionLogin } from '../../redux/actions/authActions';
 
 const validation = Yup.object().shape({
@@ -52,7 +52,7 @@ export default function Login({ navigation }) {
           mode='outlined'
           textContentType='password'
         />
-        {error && <Alert label={error} />}
+        {error && <AppAlert label={error} />}
         <FormikButton disabled={busy} mode='contained'>
           Login
         </FormikButton>

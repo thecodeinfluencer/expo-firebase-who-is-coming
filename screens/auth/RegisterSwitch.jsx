@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
-import AppText from '../../package/AppText';
-import CircleGraphic from '../../package/CircleGraphic';
+import AppText from '../../fragments/AppText';
+import CircleGraphic from '../../fragments/CircleGraphic';
 import AppButton from '../../paper/AppButton';
 
 export default function RegisterSwitch({ navigation }) {

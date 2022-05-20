@@ -6,7 +6,7 @@ import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import FormikSelect from '../../formik/FormikSelect';
-import Alert from '../../fragments/Alert';
+import AppAlert from '../../fragments/AppAlert';
 import AppButton from '../../paper/AppButton';
 import { actionUpdateListItem } from '../../redux/actions/dataActions';
 
@@ -86,7 +86,7 @@ export default function EditResident({ navigation, route }) {
           name='unitId'
           list={units || []}
         />
-        {error && <Alert label={error} />}
+        {error && <AppAlert label={error} />}
         <FormikButton disabled={busy} mode='contained'>
           Update Resident
         </FormikButton>
