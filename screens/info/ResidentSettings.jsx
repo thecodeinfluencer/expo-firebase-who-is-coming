@@ -1,12 +1,12 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import Alert from '../../fragments/Alert';
+import AppButton from '../../paper/AppButton';
 import { actionUpdateUser } from '../../redux/actions/authActions';
 
 const validation = Yup.object().shape({
@@ -23,7 +23,9 @@ export default function ResidentSettings({ navigation }) {
   navigation.setOptions({
     headerTitle: 'Update Profile',
     headerRight: () => (
-      <Button onPress={() => dispatch({ type: 'USER_LOGOUT' })}>Logout</Button>
+      <AppButton onPress={() => dispatch({ type: 'USER_LOGOUT' })}>
+        Logout
+      </AppButton>
     ),
   });
 

@@ -1,6 +1,6 @@
 import { DefaultTheme } from '@react-navigation/native';
 import React from 'react';
-import { Image, StyleSheet, Text, View, StatusBar } from 'react-native';
+import { Image, StatusBar, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';

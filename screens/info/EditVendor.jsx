@@ -1,44 +1,44 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
-import FormikSelect from '../../formik/FormikSelect';
 import Alert from '../../fragments/Alert';
+import AppButton from '../../paper/AppButton';
 import { actionUpdateListItem } from '../../redux/actions/dataActions';
 
 const validation = Yup.object().shape({
   names: Yup.string().required().label('Full Name'),
-  unitId: Yup.string().required().label('Unit ID'),
+  phone: Yup.number().required().label('Phone'),
 });
 
-export default function EditResident({ navigation, route }) {
+export default function EditVendor({ navigation, route }) {
   const dispatch = useDispatch();
   const state = useSelector(st => st);
   const busy = state.data?.busy?.users;
   const error = state.data?.error?.users;
-  const units = state.data?.list?.units;
-  const resident = route.params;
+  const vendor = route.params;
 
   navigation.setOptions({
-    headerTitle: 'Edit Resident',
+    headerTitle: 'Edit Vendor',
     headerRight: () => (
-      <Button
+      <AppButton
         onPress={() => {
           dispatch(
             actionUpdateListItem(
               'users',
               {
-                email: null,
                 names: null,
+                email: null,
+                phone: null,
                 role: null,
+                service: null,
                 uid: null,
-                unitId: null,
+                visited: null,
               },
-              resident?.uid
+              vendor?.uid
             )
           );
 
@@ -46,7 +46,7 @@ export default function EditResident({ navigation, route }) {
         }}
       >
         Delete
-      </Button>
+      </AppButton>
     ),
   });
 
@@ -55,40 +55,40 @@ export default function EditResident({ navigation, route }) {
       <FormikForm
         validationSchema={validation}
         initialValues={{
-          names: resident?.names || '',
-          unitId: resident?.unitId || '',
+          names: vendor?.names || '',
+          phone: vendor?.phone || '',
         }}
-        onSubmit={({ names, unitId }) => {
+        onSubmit={({ names, phone }) => {
           dispatch(
             actionUpdateListItem(
               'users',
               {
-                ...resident,
+                ...vendor,
                 names,
-                unitId,
+                phone,
               },
-              resident?.uid
+              vendor?.uid
             )
           );
         }}
       >
         <FormikInput
-          label={!resident?.names && 'Full Name'}
-          placeholder={resident?.names || 'John Doe'}
+          label={!vendor?.names && 'Full Name'}
+          placeholder={vendor?.names || 'John Doe'}
           name='names'
           mode='outlined'
           textContentType='name'
         />
-        <FormikSelect
-          label={resident?.unitId || 'Unit ID'}
-          // label='Unit ID'
+        <FormikInput
+          label={!vendor?.phone && 'Phone'}
+          placeholder={vendor?.phone || '254 XXX XXX XXX'}
+          name='phone'
           mode='outlined'
-          name='unitId'
-          list={units || []}
+          keyboardType='numeric'
         />
         {error && <Alert label={error} />}
         <FormikButton disabled={busy} mode='contained'>
-          Update Resident
+          Update Vendor
         </FormikButton>
       </FormikForm>
     </ScrollView>

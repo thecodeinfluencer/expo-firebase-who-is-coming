@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { List } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import ListCard from '../../paper/ListCard';
-import ListEmpty from '../../paper/ListEmpty';
+import ListItem from '../../paper/ListItem';
+import Empty from '../../paper/Empty';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function Suspicions() {
@@ -18,9 +18,9 @@ export default function Suspicions() {
 
   return (
     <View>
-      {(!suspicions || suspicions?.length < 1) && <ListEmpty />}
+      {(!suspicions || suspicions?.length < 1) && <Empty />}
       {suspicions?.map(({ id, title, user, description }) => (
-        <ListCard
+        <ListItem
           key={id}
           title={title + ' . ' + user?.names}
           description={description + ' . ' + moment(id).fromNow()}

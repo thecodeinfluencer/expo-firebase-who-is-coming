@@ -1,6 +1,6 @@
 import { DefaultTheme } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 import { auth, sendPasswordResetEmail } from '../../config/firebase';
 import FormikButton from '../../formik/FormikButton';

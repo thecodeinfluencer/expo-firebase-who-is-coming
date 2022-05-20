@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import AppText from '../package/AppText';
 
-export default function ListEmpty({ label }) {
+export default function Empty({ label }) {
   return (
     <View style={styles.root}>
       <IconButton color='#999' size={36} icon='file' />

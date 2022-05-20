@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import ListCard from '../../paper/ListCard';
-import ListEmpty from '../../paper/ListEmpty';
+import AppButton from '../../paper/AppButton';
+import ListItem from '../../paper/ListItem';
+import Empty from '../../paper/Empty';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function ManageVendors({ navigation }) {
@@ -25,13 +25,13 @@ export default function ManageVendors({ navigation }) {
   return (
     <ScrollView>
       {vendors?.map(vendor => (
-        <ListCard
+        <ListItem
           key={vendor.id}
           title={vendor.names}
           description={vendor?.service}
           right={() => (
             <View style={styles.right}>
-              <Button
+              <AppButton
                 labelStyle={styles.buttonText}
                 contentStyle={styles.button}
                 mode='outlined'
@@ -39,12 +39,12 @@ export default function ManageVendors({ navigation }) {
                 onPress={() => navigation.navigate('EditVendor', { ...vendor })}
               >
                 View Info
-              </Button>
+              </AppButton>
             </View>
           )}
         />
       ))}
-      {!vendors || (vendors?.length < 1 && <ListEmpty />)}
+      {!vendors || (vendors?.length < 1 && <Empty />)}
     </ScrollView>
   );
 }

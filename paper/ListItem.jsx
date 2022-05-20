@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Card, DefaultTheme, List } from 'react-native-paper';
 
-export default function ListCard({ title, description, right, left }) {
+export default function ListItem({ title, description, right, left }) {
   return (
     <Card style={styles.root}>
       <Card.Content>

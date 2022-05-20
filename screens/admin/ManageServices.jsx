@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
 import FormikForm from '../../formik/FormikForm';
 import FormikInput from '../../formik/FormikInput';
 import Alert from '../../fragments/Alert';
-import ListCard from '../../paper/ListCard';
+import AppButton from '../../paper/AppButton';
+import ListItem from '../../paper/ListItem';
 import {
   actionLoadList,
   actionSetList,
@@ -73,13 +73,13 @@ export default function ManageServices() {
 
       <View style={styles.container2}>
         {services?.map(service => (
-          <ListCard
+          <ListItem
             key={service?.id}
             title={service.label}
             // description={unit.service || unit.unitID || null}
             right={() => (
               <View style={styles.right}>
-                <Button
+                <AppButton
                   labelStyle={styles.buttonText}
                   contentStyle={styles.button}
                   mode='outlined'
@@ -100,7 +100,7 @@ export default function ManageServices() {
                   }
                 >
                   Delete
-                </Button>
+                </AppButton>
               </View>
             )}
           />

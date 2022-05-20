@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { IconButton, TouchableRipple } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import ListCard from '../../paper/ListCard';
+import ListItem from '../../paper/ListItem';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function Services({ navigation }) {
@@ -31,7 +31,7 @@ export default function Services({ navigation }) {
             }
             key={service?.id}
           >
-            <ListCard
+            <ListItem
               title={service?.label}
               right={() => (
                 <View style={styles.right}>

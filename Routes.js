@@ -11,29 +11,29 @@ import {
 } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import AdminApp from './screens/app/AdminApp';
-import EditResident from './screens/app/EditResident';
-import EditVendor from './screens/app/EditVendor';
-import ForgotPassword from './screens/app/ForgotPassword';
-import GuestInfo from './screens/app/GuestInfo';
-import Login from './screens/app/Login';
-import ManageGuests from './screens/app/ManageGuests';
-import ManageResidents from './screens/app/ManageResidents';
-import ManageServices from './screens/app/ManageServices';
-import ManageUnits from './screens/app/ManageUnits';
-import ManageVendors from './screens/app/ManageVendors';
-import RegisterGuest from './screens/app/RegisterGuest';
-import RegisterResident from './screens/app/RegisterResident';
-import RegisterSwitch from './screens/app/RegisterSwitch';
-import RegisterVendor from './screens/app/RegisterVendor';
-import ReportSuspicion from './screens/app/ReportSuspicion';
+import EditResident from './screens/info/EditResident';
+import EditVendor from './screens/info/EditVendor';
+import ForgotPassword from './screens/auth/ForgotPassword';
+import GuestInfo from './screens/info/GuestInfo';
+import Login from './screens/auth/Login';
+import ManageGuests from './screens/admin/ManageGuests';
+import ManageResidents from './screens/admin/ManageResidents';
+import ManageServices from './screens/admin/ManageServices';
+import ManageUnits from './screens/admin/ManageUnits';
+import ManageVendors from './screens/admin/ManageVendors';
+import RegisterGuest from './screens/auth/RegisterGuest';
+import RegisterResident from './screens/auth/RegisterResident';
+import RegisterSwitch from './screens/auth/RegisterSwitch';
+import RegisterVendor from './screens/auth/RegisterVendor';
+import ReportSuspicion from './screens/info/ReportSuspicion';
 import ResidentApp from './screens/app/ResidentApp';
-import ResidentSettings from './screens/app/ResidentSettings';
-import ServiceInfo from './screens/app/ServiceInfo';
+import ResidentSettings from './screens/info/ResidentSettings';
+import ServiceInfo from './screens/info/ServiceInfo';
 import Services from './screens/app/Services';
 import Suspicions from './screens/app/Suspicions';
-import VendorSettings from './screens/app/VendorSettings';
-import ViewResidents from './screens/app/ViewResidents';
-import Welcome from './screens/app/Welcome';
+import VendorSettings from './screens/info/VendorSettings';
+import ViewResidents from './screens/info/ViewResidents';
+import Welcome from './screens/auth/Welcome';
 
 const AuthStack = createNativeStackNavigator();
 const ResidentStack = createNativeStackNavigator();
@@ -44,7 +44,7 @@ const theme = {
   fonts: configureFonts(fontConfig),
 };
 
-export default function Start() {
+export default function Routes() {
   const state = useSelector(st => st);
   const user = state.auth.user;
 

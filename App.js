@@ -7,7 +7,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import rootReducer from './redux/reducers/rootReducer';
-import Start from './Start';
+import Routes from './Routes';
 
 const storeName = '@whosv1';
 const middleware = [thunk];
@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <Start />
+      <Routes />
     </Provider>
   );
 }
