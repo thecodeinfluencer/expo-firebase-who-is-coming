@@ -23,7 +23,7 @@ export default function ManageVendors({ navigation }) {
   }, [dispatch]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.root}>
       {vendors?.map(vendor => (
         <ListItem
           key={vendor.id}
@@ -32,8 +32,9 @@ export default function ManageVendors({ navigation }) {
           right={() => (
             <View style={styles.right}>
               <AppButton
+                small
                 labelStyle={styles.buttonText}
-                contentStyle={styles.button}
+                style={styles.button}
                 mode='outlined'
                 disabled={busy}
                 onPress={() => navigation.navigate('EditVendor', { ...vendor })}
@@ -50,12 +51,14 @@ export default function ManageVendors({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  root: {
+    paddingTop: 4,
+  },
   right: {
     justifyContent: 'center',
   },
   button: {
     borderColor: '#fff',
-    borderWidth: 2,
   },
   buttonText: {
     color: '#fff',

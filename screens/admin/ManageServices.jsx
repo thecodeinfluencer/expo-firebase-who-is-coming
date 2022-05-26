@@ -80,8 +80,9 @@ export default function ManageServices() {
             right={() => (
               <View style={styles.right}>
                 <AppButton
+                  small
                   labelStyle={styles.buttonText}
-                  contentStyle={styles.button}
+                  style={styles.button}
                   mode='outlined'
                   disabled={busy}
                   onPress={() =>
@@ -123,7 +124,6 @@ const styles = StyleSheet.create({
   },
   button: {
     borderColor: '#fff',
-    borderWidth: 2,
   },
   buttonText: {
     color: '#fff',

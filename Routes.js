@@ -3,37 +3,32 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {
-  ActivityIndicator,
-  configureFonts,
-  DefaultTheme,
-  Provider,
-} from 'react-native-paper';
+import { ActivityIndicator, DefaultTheme, Provider } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import AdminApp from './screens/app/AdminApp';
-import EditResident from './screens/info/EditResident';
-import EditVendor from './screens/info/EditVendor';
-import ForgotPassword from './screens/auth/ForgotPassword';
-import GuestInfo from './screens/info/GuestInfo';
-import Login from './screens/auth/Login';
 import ManageGuests from './screens/admin/ManageGuests';
 import ManageResidents from './screens/admin/ManageResidents';
 import ManageServices from './screens/admin/ManageServices';
 import ManageUnits from './screens/admin/ManageUnits';
 import ManageVendors from './screens/admin/ManageVendors';
+import AdminApp from './screens/app/AdminApp';
+import ResidentApp from './screens/app/ResidentApp';
+import Services from './screens/app/Services';
+import Suspicions from './screens/app/Suspicions';
+import ForgotPassword from './screens/auth/ForgotPassword';
+import Login from './screens/auth/Login';
 import RegisterGuest from './screens/auth/RegisterGuest';
 import RegisterResident from './screens/auth/RegisterResident';
 import RegisterSwitch from './screens/auth/RegisterSwitch';
 import RegisterVendor from './screens/auth/RegisterVendor';
+import Welcome from './screens/auth/Welcome';
+import EditResident from './screens/info/EditResident';
+import EditVendor from './screens/info/EditVendor';
+import GuestInfo from './screens/info/GuestInfo';
 import ReportSuspicion from './screens/info/ReportSuspicion';
-import ResidentApp from './screens/app/ResidentApp';
 import ResidentSettings from './screens/info/ResidentSettings';
 import ServiceInfo from './screens/info/ServiceInfo';
-import Services from './screens/app/Services';
-import Suspicions from './screens/app/Suspicions';
 import VendorSettings from './screens/info/VendorSettings';
 import ViewResidents from './screens/info/ViewResidents';
-import Welcome from './screens/auth/Welcome';
 
 const AuthStack = createNativeStackNavigator();
 const ResidentStack = createNativeStackNavigator();
@@ -41,8 +36,16 @@ const VendorStack = createNativeStackNavigator();
 
 const theme = {
   ...DefaultTheme,
-  fonts: configureFonts(fontConfig),
+  // fonts: configureFonts(fontConfig),
+  fonts: {
+    regular: {
+      fontFamily: 'Nunito',
+    },
+  },
+  roundness: 28,
 };
+
+console.log({ theme });
 
 export default function Routes() {
   const state = useSelector(st => st);
@@ -197,60 +200,3 @@ const styles = StyleSheet.create({
     padding: 60,
   },
 });
-
-const fontConfig = {
-  web: {
-    regular: {
-      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: '400',
-    },
-    medium: {
-      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: '500',
-    },
-    light: {
-      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: '300',
-    },
-    thin: {
-      fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',
-      fontWeight: '100',
-    },
-  },
-  ios: {
-    regular: {
-      fontFamily: 'System',
-      fontWeight: '400',
-    },
-    medium: {
-      fontFamily: 'System',
-      fontWeight: '500',
-    },
-    light: {
-      fontFamily: 'System',
-      fontWeight: '300',
-    },
-    thin: {
-      fontFamily: 'System',
-      fontWeight: '100',
-    },
-  },
-  default: {
-    regular: {
-      fontFamily: 'Nunito',
-      fontWeight: 'normal',
-    },
-    medium: {
-      fontFamily: 'sans-serif-medium',
-      fontWeight: 'normal',
-    },
-    light: {
-      fontFamily: 'sans-serif-light',
-      fontWeight: 'normal',
-    },
-    thin: {
-      fontFamily: 'sans-serif-thin',
-      fontWeight: 'normal',
-    },
-  },
-};

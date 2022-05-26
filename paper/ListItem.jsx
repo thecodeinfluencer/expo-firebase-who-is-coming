@@ -1,8 +1,23 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Card, DefaultTheme, List } from 'react-native-paper';
+import { Card, List, DefaultTheme } from 'react-native-paper';
 
-export default function ListItem({ title, description, right, left }) {
+export default function ListItem({ title, description, right, left, bg }) {
+  const styles = StyleSheet.create({
+    root: {
+      marginHorizontal: 8,
+      marginVertical: 4,
+      backgroundColor: bg || DefaultTheme.colors.primary,
+    },
+    item: {
+      padding: 0,
+    },
+    text: {
+      color: '#fff',
+      marginLeft: left && 4,
+    },
+  });
+
   return (
     <Card style={styles.root}>
       <Card.Content>
@@ -19,18 +34,3 @@ export default function ListItem({ title, description, right, left }) {
     </Card>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    marginHorizontal: 8,
-    marginVertical: 4,
-    backgroundColor: DefaultTheme.colors.primary,
-  },
-  item: {
-    padding: 0,
-  },
-  text: {
-    color: '#fff',
-    fontFamily: 'Nunito',
-  },
-});

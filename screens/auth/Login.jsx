@@ -1,6 +1,12 @@
-import { DefaultTheme } from '@react-navigation/native';
 import React from 'react';
-import { Image, StatusBar, StyleSheet, View } from 'react-native';
+import {
+  Image,
+  StatusBar,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { DefaultTheme } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
@@ -59,19 +65,16 @@ export default function Login({ navigation }) {
       </FormikForm>
       <View style={styles.action}>
         <AppText>Dont have an account yet?</AppText>
-        <AppText
-          onPress={() => navigation.navigate('RegisterSwitch')}
-          style={styles.actionText}
-        >
-          Register.
-        </AppText>
+        <TouchableOpacity onPress={() => navigation.navigate('RegisterSwitch')}>
+          <AppText style={styles.actionText}>Register.</AppText>
+        </TouchableOpacity>
       </View>
-      <AppText
+      <TouchableOpacity
+        style
         onPress={() => navigation.navigate('ForgotPassword')}
-        style={styles.actionText}
       >
-        Forgot password?
-      </AppText>
+        <AppText style={styles.actionText}>Forgot password?</AppText>
+      </TouchableOpacity>
     </View>
   );
 }

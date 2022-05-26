@@ -1,7 +1,6 @@
-import { DefaultTheme } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { Image, ScrollView, StatusBar, StyleSheet, View } from 'react-native';
-import { Card } from 'react-native-paper';
+import { Card, DefaultTheme } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
@@ -35,6 +34,8 @@ export default function RegisterResident({ navigation }) {
   useEffect(() => {
     dispatch(actionLoadList('units'));
   }, [dispatch]);
+
+  console.log({ DefaultTheme });
 
   return (
     <View>
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   actionText: {
-    color: DefaultTheme.colors.primary,
+    // color: DefaultTheme.colors.primary,
   },
   image: {
     height: 136,

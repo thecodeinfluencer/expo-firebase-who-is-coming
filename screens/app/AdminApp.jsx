@@ -1,15 +1,11 @@
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import {
-  Banner,
-  Card,
-  Colors,
-  IconButton,
-  TouchableRipple,
-} from 'react-native-paper';
+import { Banner, Colors, IconButton } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import AppText from '../../fragments/AppText';
+import AppButton from '../../paper/AppButton';
+import ListItem from '../../paper/ListItem';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function AdminApp({ navigation }) {
@@ -40,22 +36,29 @@ export default function AdminApp({ navigation }) {
 
       <View style={styles.actionsContainer}>
         {actions.map(({ name, text, bg, icon }) => (
-          <TouchableRipple
-            style={styles.action}
+          <ListItem
             key={name}
-            onPress={() => navigation.navigate(name)}
-          >
-            <Card style={[styles.actionCard, { backgroundColor: bg }]}>
-              <Card.Title
-                title={text}
-                titleStyle={styles.actionText}
-                left={() => <Icon color={Colors.white} size={30} name={icon} />}
-                right={() => (
-                  <Icon color={Colors.white} size={30} name='chevron-right' />
-                )}
-              />
-            </Card>
-          </TouchableRipple>
+            title={text}
+            bg={bg}
+            left={() => (
+              <View style={styles.icon}>
+                <Icon color={Colors.white} size={28} name={icon} />
+              </View>
+            )}
+            right={() => (
+              <View style={styles.right}>
+                <AppButton
+                  small
+                  labelStyle={styles.buttonText}
+                  style={styles.button}
+                  mode='outlined'
+                  onPress={() => navigation.navigate(name)}
+                >
+                  Manage
+                </AppButton>
+              </View>
+            )}
+          />
         ))}
       </View>
     </ScrollView>
@@ -63,12 +66,19 @@ export default function AdminApp({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  icon: { justifyContent: 'center' },
   actionsContainer: {
     padding: 8,
   },
-  action: { marginBottom: 8 },
-  actionCard: { backgroundColor: '#009688' },
-  actionText: { color: '#fff', fontFamily: 'Nunito' },
+  right: {
+    justifyContent: 'center',
+  },
+  button: {
+    borderColor: '#fff',
+  },
+  buttonText: {
+    color: '#fff',
+  },
 });
 
 const actions = [
@@ -87,13 +97,13 @@ const actions = [
   {
     name: 'ManageUnits',
     text: 'House Units',
-    bg: '#a0e3e2',
+    bg: '#009996',
     icon: 'warehouse',
   },
   {
     name: 'ManageServices',
     text: 'Service Categories',
-    bg: '#c3f2a6',
+    bg: '#39b54a',
     icon: 'apps-box',
   },
 ];

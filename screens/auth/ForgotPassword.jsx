@@ -1,6 +1,6 @@
-import { DefaultTheme } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { DefaultTheme } from 'react-native-paper';
 import * as Yup from 'yup';
 import { auth, sendPasswordResetEmail } from '../../config/firebase';
 import FormikButton from '../../formik/FormikButton';
@@ -51,12 +51,9 @@ export default function ForgotPassword({ navigation }) {
       </FormikForm>
       <View style={styles.action}>
         <AppText>Dont need to reset password??</AppText>
-        <AppText
-          onPress={() => navigation.navigate('Login')}
-          style={styles.actionText}
-        >
-          Login.
-        </AppText>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <AppText style={styles.actionText}>Login.</AppText>
+        </TouchableOpacity>
       </View>
     </View>
   );

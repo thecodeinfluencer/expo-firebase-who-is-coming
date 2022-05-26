@@ -25,7 +25,6 @@ export default function FormikSelect({ name, style, ...props }) {
         onDismiss={() => setShowDropDown(false)}
         value={name && values[name]}
         setValue={name && handleChange(name)}
-        theme={{ roundness: 28 }}
         {...props}
       />
       {name && touched[name] && errors[name] && (

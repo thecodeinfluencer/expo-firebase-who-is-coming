@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
   root: {
     backgroundColor: '#ff000033',
     marginHorizontal: 0,
+    borderRadius: 24,
     color: '#999',
   },
 });

@@ -23,7 +23,7 @@ export default function ManageResidents({ navigation }) {
   }, [dispatch]);
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.root}>
       {residents?.map(resident => (
         <ListItem
           key={resident.id}
@@ -32,8 +32,9 @@ export default function ManageResidents({ navigation }) {
           right={() => (
             <View style={styles.right}>
               <AppButton
+                small
                 labelStyle={styles.buttonText}
-                contentStyle={styles.button}
+                style={styles.button}
                 mode='outlined'
                 disabled={busy}
                 onPress={() =>
@@ -52,12 +53,14 @@ export default function ManageResidents({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  root: {
+    paddingTop: 4,
+  },
   right: {
     justifyContent: 'center',
   },
   button: {
     borderColor: '#fff',
-    borderWidth: 2,
   },
   buttonText: {
     color: '#fff',

@@ -14,14 +14,16 @@ export default function FormikInput({ name, style, ...props }) {
         error={name && touched[name] && errors[name] && true}
         onChangeText={name && handleChange(name)}
         onBlur={() => name && setFieldTouched(name)}
-        theme={{ roundness: 28 }}
-        // dense
+        theme={{
+          roundness: 28,
+        }}
         {...props}
       />
       {name && touched[name] && errors[name] && (
         <HelperText
           type='error'
           visible={name && touched[name] && errors[name]}
+          // style={styles.font}
         >
           {errors[name]}
         </HelperText>

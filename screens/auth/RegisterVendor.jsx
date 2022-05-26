@@ -1,7 +1,6 @@
-import { DefaultTheme } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
-import { Card } from 'react-native-paper';
+import { Card, DefaultTheme } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';

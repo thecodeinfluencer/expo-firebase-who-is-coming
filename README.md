@@ -46,7 +46,7 @@ for the project to work correctly, make sure you do the following:
 - Create a root folder `config` and add a file called `firebase.js`.
 - The following are the contents of `config/firebase.js`:
 
-```
+```javascript
 import { initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
@@ -111,7 +111,7 @@ You can reach out in caseof any problems
 
 - After you clone the repo, run `npm install` or `yarn install` depending on your package manager
 - Run `yarn start` or `npm start` depending on your package manager or if you have expo-cli `expo start`
-- Follow the instructions on the terminal to open your project in either **Android**
+- Follow the instructions on the terminal to open your project in either **Android** or **iOS**
 
 ## technologies
 

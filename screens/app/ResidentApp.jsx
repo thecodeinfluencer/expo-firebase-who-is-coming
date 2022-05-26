@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   action: { marginBottom: 8 },
-  actionCard: { backgroundColor: '#009688', fontFamily: 'Nunito' },
-  actionText: { color: '#fff', fontFamily: 'Nunito' },
+  actionCard: { backgroundColor: '#009688' },
+  actionText: { color: '#fff' },
 });
 
 const actions = [
