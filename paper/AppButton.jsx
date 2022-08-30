@@ -15,13 +15,12 @@ export default function AppButton({
       paddingVertical: small ? 0 : 8,
     },
     button: {
-      borderRadius: 24,
+      borderRadius: 8,
     },
   });
 
   return (
     <Button
-      // compact={small}
       style={{ ...styles.button, ...style }}
       labelStyle={{ ...styles.label, ...labelStyle }}
       {...props}

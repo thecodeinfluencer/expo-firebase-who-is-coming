@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { List } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import ListItem from '../../paper/ListItem';
 import Empty from '../../paper/Empty';
+import ListItem from '../../paper/ListItem';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function Suspicions() {

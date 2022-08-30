@@ -8,7 +8,6 @@ import { actionLoadList } from '../../redux/actions/dataActions';
 export default function Services({ navigation }) {
   const dispatch = useDispatch();
   const state = useSelector(st => st);
-
   const services = state.data?.list?.services;
 
   navigation.setOptions({

@@ -1,13 +1,12 @@
+import moment from 'moment';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Card, Colors, DefaultTheme, List } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import moment from 'moment';
 
 export default function GuestInfo({ navigation, route }) {
   const state = useSelector(st => st);
   const guests = state.data?.list?.guests;
-
   const guest = guests.filter(({ id }) => id == route?.params?.id)[0];
 
   navigation.setOptions({

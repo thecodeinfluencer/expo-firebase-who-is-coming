@@ -3,7 +3,6 @@ export const setActionBusy = (dispatch, VAR, type, state) => {
     type,
     state,
   };
-
   dispatch({ type: VAR, busy });
 };
 
@@ -12,13 +11,5 @@ export const setActionError = (dispatch, VAR, type, err) => {
     type,
     state: err?.code || err?.message,
   };
-
-  console.log({
-    error: 'setActionError',
-    from: VAR,
-    type,
-    err,
-  });
-
   dispatch({ type: VAR, error });
 };

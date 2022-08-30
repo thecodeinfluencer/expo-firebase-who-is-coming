@@ -22,10 +22,6 @@ export default function dataReducer(state = initialState, action) {
         ...state,
         list: {
           ...state.list,
-          // [action.snapObject.type]: [
-          //   ...state.list[action.snapObject.type],
-          //   action.snapObject.state,
-          // ],
         },
         error: null,
       };

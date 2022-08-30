@@ -4,10 +4,8 @@ import { setActionBusy, setActionError } from '../utilities/actionHelpers';
 export const actionLoadList = list => {
   return dispatch => {
     setActionBusy(dispatch, 'DATA_BUSY', 'login', true);
-
     onValue(
       ref(database, `${list}`),
-
       snap => {
         if (snap.exists()) {
           const snapList = {

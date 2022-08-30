@@ -47,7 +47,7 @@ export default function App() {
 
   store.subscribe(() => saveToAsyncStorage(store.getState()));
 
-  // Fonts
+
 
   let [fontsLoaded] = useFonts({
     Nunito: require('./assets/fonts/Nunito.ttf'),

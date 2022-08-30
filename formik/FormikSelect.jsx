@@ -7,19 +7,11 @@ import DropDown from 'react-native-paper-dropdown';
 export default function FormikSelect({ name, style, ...props }) {
   const [showDropDown, setShowDropDown] = useState();
 
-  const {
-    handleChange,
-    errors,
-    //  setFieldTouched,
-    touched,
-    values,
-  } = useFormikContext();
+  const { handleChange, errors, touched, values } = useFormikContext();
 
   return (
     <View style={[styles.root, style]}>
       <DropDown
-        // onBlur={() => name && setFieldTouched(name)}
-        // error={name && touched[name] && errors[name] && true}
         visible={showDropDown}
         showDropDown={() => setShowDropDown(true)}
         onDismiss={() => setShowDropDown(false)}

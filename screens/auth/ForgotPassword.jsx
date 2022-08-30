@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { DefaultTheme } from 'react-native-paper';
 import * as Yup from 'yup';
 import { auth, sendPasswordResetEmail } from '../../config/firebase';

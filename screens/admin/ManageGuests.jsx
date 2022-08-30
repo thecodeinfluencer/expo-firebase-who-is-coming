@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import AppButton from '../../paper/AppButton';
-import ListItem from '../../paper/ListItem';
 import Empty from '../../paper/Empty';
+import ListItem from '../../paper/ListItem';
 import { actionLoadList } from '../../redux/actions/dataActions';
 
 export default function ManageGuests({ navigation }) {
@@ -12,7 +12,6 @@ export default function ManageGuests({ navigation }) {
   const guests = state.data?.list?.guests;
   const busy = state.data?.busy?.guests;
   const user = state.auth.user;
-
   const myGuests = guests.filter(({ unitId }) => unitId == user?.unitId);
 
   navigation.setOptions({

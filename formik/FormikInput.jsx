@@ -15,7 +15,7 @@ export default function FormikInput({ name, style, ...props }) {
         onChangeText={name && handleChange(name)}
         onBlur={() => name && setFieldTouched(name)}
         theme={{
-          roundness: 28,
+          roundness: 8,
         }}
         {...props}
       />
@@ -23,7 +23,6 @@ export default function FormikInput({ name, style, ...props }) {
         <HelperText
           type='error'
           visible={name && touched[name] && errors[name]}
-          // style={styles.font}
         >
           {errors[name]}
         </HelperText>

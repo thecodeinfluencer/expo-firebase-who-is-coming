@@ -42,10 +42,8 @@ const theme = {
       fontFamily: 'Nunito',
     },
   },
-  roundness: 28,
+  roundness: 8,
 };
-
-console.log({ theme });
 
 export default function Routes() {
   const state = useSelector(st => st);

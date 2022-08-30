@@ -115,30 +115,6 @@ export default function RegisterVendor({ navigation }) {
               mode='outlined'
               textContentType='password'
             />
-            {/* <View style={styles.time}>
-          <FormikInput
-            style={styles.time1}
-            label='Arriving'
-            placeholder='9:30AM'
-            name='arrival'
-            mode='outlined'
-            keyboardType='decimal-pad'
-          />
-          <FormikInput
-            style={styles.time2}
-            label='Leaving'
-            placeholder='9:30AM'
-            name='departure'
-            mode='outlined'
-            keyboardType='decimal-pad'
-          />
-        </View>
-        <FormikInput
-          label='Plate Number'
-          placeholder='KBK 678A'
-          name='plate'
-          mode='outlined'
-        /> */}
             {error && <AppAlert label={error} />}
             <FormikButton disabled={busy} mode='contained'>
               Register

@@ -38,7 +38,11 @@ export default function authReducer(state = initialState, action) {
     case 'AUTH_ERROR':
       return {
         ...state,
-        error: { ...state.error, [action.error.type]: action.error.state },
+        error: {
+          ...state.error,
+          [action.error.type]:
+            action.error.state
+        },
       };
     default:
       return { ...state };

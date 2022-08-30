@@ -74,7 +74,6 @@ export default function VendorSettings({ navigation }) {
           />
         </Card.Content>
       </Card>
-
       <FormikForm
         validationSchema={validation}
         initialValues={{

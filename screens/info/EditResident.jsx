@@ -81,7 +81,6 @@ export default function EditResident({ navigation, route }) {
         />
         <FormikSelect
           label={resident?.unitId || 'Unit ID'}
-          // label='Unit ID'
           mode='outlined'
           name='unitId'
           list={units || []}

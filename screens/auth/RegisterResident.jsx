@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Image, ScrollView, StatusBar, StyleSheet, View } from 'react-native';
-import { Card, DefaultTheme } from 'react-native-paper';
+import { Card } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import FormikButton from '../../formik/FormikButton';
@@ -16,7 +16,6 @@ import { actionLoadList } from '../../redux/actions/dataActions';
 const validation = Yup.object().shape({
   names: Yup.string().required().label('Full Name'),
   email: Yup.string().email().required().label('Email'),
-  // unitId: Yup.string().required().label('Unit ID'),
   password: Yup.string().required().min(6).label('Password'),
   cpassword: Yup.string().oneOf(
     [Yup.ref('password'), null],
@@ -34,8 +33,6 @@ export default function RegisterResident({ navigation }) {
   useEffect(() => {
     dispatch(actionLoadList('units'));
   }, [dispatch]);
-
-  console.log({ DefaultTheme });
 
   return (
     <View>
