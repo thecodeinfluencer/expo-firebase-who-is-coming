@@ -7,11 +7,12 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "build": "echo ====== WARNING: Ensure to exclude credentials from .gitignore ====== && npx eas build -p android --profile preview"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.2",
-    "@expo/vector-icons": "^13.0.0",
+    "@expo/vector-icons": "^12.0.0",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/datetimepicker": "4.0.0",
     "@react-navigation/native": "^6.0.10",
@@ -26,6 +27,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-dotenv": "^3.3.1",
     "react-native-paper": "^4.12.0",
     "react-native-paper-dropdown": "^1.0.7",
     "react-native-safe-area-context": "3.3.2",

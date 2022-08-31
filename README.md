@@ -43,63 +43,24 @@ Whos has the following four actors
 
 for the project to work correctly, make sure you do the following:
 
-- Create a root folder `config` and add a file called `firebase.js`.
-- The following are the contents of `config/firebase.js`:
+- Create a root file called `.env`.
+- The following are the contents of the `.env` file
 
 ```javascript
-import { initializeApp } from 'firebase/app';
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-} from 'firebase/auth';
-import {
-  getDatabase,
-  ref,
-  set,
-  get,
-  child,
-  onValue,
-  remove,
-} from 'firebase/database';
-
-const firebaseConfig = {
-  apiKey: 'your-api-key',
-  authDomain: 'your-auth-domain',
-  projectId: 'project-id',
-  storageBucket: 'storage-bucket',
-  messagingSenderId: 'messaging-sender-id',
-  appId: 'app-id',
-  measurementId: 'measurement-id',
-};
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth();
-const database = getDatabase();
-
-export {
-  app,
-  createUserWithEmailAndPassword,
-  auth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  database,
-  ref,
-  set,
-  get,
-  child,
-  onValue,
-  sendPasswordResetEmail,
-  remove,
-};
+# // FIREBASE CONFIG
+FIREBASE_API_KEY=your-api-key
+FIREBASE_AUTH_DOMAIN=your-auth-domain
+FIREBASE_DATABASE_URL=your-database-url
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_STORAGE_BUCKET=your-storage-bucket
+FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+FIREBASE_APP_ID=your-app-id
+FIREBASE_MEASUREMENT_ID=your-measurement-id
 ```
 
-You can get the details in the `firebaseConfig` variable by doing the following:
+You can get the details for `FIREBASE_` variables in the `.env` by doing the following:
 
-- Create a free firebase project [here](https://console.firebase.google.com)
+- Create a free firebase project on [console.firebase.google.com](https://console.firebase.google.com)
 - Add a web app to your project
 - Enable email login on the authentication section
 - Enable realtime database and ensure to **start in test mode**

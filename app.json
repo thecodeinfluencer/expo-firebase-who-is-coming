@@ -13,9 +13,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "code.influence.whos"
@@ -26,15 +24,18 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "code.influence.whos",
-      "permissions": [
-        "INTERNET",
-        "NETWORK"
-      ],
-      "versionCode": 2
+      "permissions": ["INTERNET", "NETWORK"],
+      "versionCode": 2,
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=code.influence.whos"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "Who is Coming is a Residential Security Management Application which allows Residents of a community access a variety of services offered, view their neighbors and their contact details, view and approve guests coming to their unit, and Report suspicious activities they observe in the community.",
+    "extra": {
+      "eas": {
+        "projectId": "714b613b-78c7-46b9-91c5-b6fab045403f"
+      }
+    }
   }
 }

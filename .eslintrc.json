@@ -6,7 +6,6 @@
     "react-native/react-native": true
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
-
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
